@@ -340,7 +340,12 @@ namespace units
 		};                                                                                                             \
 		template<typename T>                                                                                           \
 		inline constexpr bool is_##unitdimension##_unit_v = is_##unitdimension##_unit<T>::value;                       \
-	}
+	}                                                                                                                  \
+	namespace concepts                                                                                                 \
+	{                                                                                                                  \
+		template<typename T>                                                                                           \
+		concept unitdimension = traits::is_##unitdimension##_unit_v<T>;                                                \
+	} // namespace concepts
 
 /**
  * @def			UNIT_ADD_WITH_METRIC_PREFIXES(namespaceName, namePlural, abbreviation, definition)
