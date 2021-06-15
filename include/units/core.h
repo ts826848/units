@@ -2171,6 +2171,12 @@ namespace units
 		inline constexpr bool is_unit_v = is_unit<T>::value;
 	} // namespace traits
 
+	namespace concepts
+	{
+		template<typename T>
+		concept unit = traits::is_unit_v<T>;
+	} // namespace concepts
+
 	/**
 	 * @ingroup		UnitTypes
 	 * @brief		Describes objects that represent quantities of a given unit.
